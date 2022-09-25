@@ -12,7 +12,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get update
 
 # Make sure the base image is up to date
 
-RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y apt-utils netselect wget
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y apt-utils
 
 
 RUN DEBIAN_FRONTEND="noninteractive" apt-get upgrade -y

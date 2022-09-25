@@ -12,7 +12,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get update
 
 # Make sure the base image is up to date
 
-RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y apt-utils
+RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y apt-utils netselect wget
 
 
 RUN DEBIAN_FRONTEND="noninteractive" apt-get upgrade -y
@@ -24,7 +24,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y openssh-server screen py
 build-essential curl flex g++-multilib gcc-multilib gnupg gperf imagemagick lib32ncurses-dev \
 lib32readline-dev lib32z1-dev  liblz4-tool libncurses5-dev libsdl1.2-dev libssl-dev \
 libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc yasm zip zlib1g-dev \
-libtinfo5 libncurses5 mosh tmux xattr nano wget locales
+libtinfo5 libncurses5 mosh tmux xattr nano wget locales ncdu
 
 RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
     locale-gen
@@ -57,5 +57,5 @@ RUN chmod a+x /usr/local/bin/repo
 # Create a directory which we can use to build the AOSP
 #RUN mkdir /home/$username/aosp && chown $userid:$groupid /home/$username/aosp && chmod ug+s /home/$username/aosp
 RUN mkdir /root/aosp
-RUN echo 'echo "PUT ALL WORK ON /root/aosp FOLDER EVERYTHING OUTSIDE WILL BE DELETED"'  > /etc/profile.d/welcome.sh
+RUN echo 'echo "PUT ALL WORK ON /root/aosp FOLDER EVERYTHING OUTSIDE WILL BE DELETED, ALSO PUT CCACHE"'  > /etc/profile.d/welcome.sh
 CMD ["/usr/sbin/sshd", "-D"]

@@ -2,7 +2,7 @@
 FROM ubuntu:20.04
 #ARG userid=1000
 #ARG groupid=1000
-#ARG username=build
+#ARG username=itzkaguya
 # ARG http_proxy
 
 # Using separate RUNs here allows Docker to cache each update
@@ -56,6 +56,6 @@ RUN chmod a+x /usr/local/bin/repo
 
 # Create a directory which we can use to build the AOSP
 #RUN mkdir /home/$username/aosp && chown $userid:$groupid /home/$username/aosp && chmod ug+s /home/$username/aosp
-RUN mkdir /root/aosp
-RUN echo 'echo "PUT ALL WORK ON /root/aosp FOLDER EVERYTHING OUTSIDE WILL BE DELETED, ALSO PUT CCACHE"'  > /etc/profile.d/welcome.sh
+RUN mkdir /root/itzkaguya/
+RUN echo 'echo "PUT ALL WORK ON /root/itzkaguya FOLDER EVERYTHING OUTSIDE WILL BE DELETED, ALSO PUT CCACHE"'  > /etc/profile.d/welcome.sh
 CMD ["/usr/sbin/sshd", "-D"]

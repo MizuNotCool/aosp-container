@@ -5,4 +5,4 @@ docker_build:
   stage: build
   image: docker:latest
   script:
-    - docker build -t aosp_builder_container:latest .
+    - docker build -t itzkaguya:latest .

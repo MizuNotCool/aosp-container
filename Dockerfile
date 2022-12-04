@@ -1,5 +1,5 @@
 # Originally from: https://android-review.googlesource.com/c/platform/build/+/1161367
-FROM ubuntu:20.04
+FROM ubuntu:22.10
 #ARG userid=1000
 #ARG groupid=1000
 #ARG username=itzkaguya

@@ -26,8 +26,6 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get upgrade -y
 RUN mkdir /var/run/sshd
 
 RUN echo 'root:root' | chpasswd
-RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
-RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 # Download and verify repo
 #RUN gpg --keyserver keys.openpgp.org --recv-key 8BB9AD793E8E6153AF0F9A4416530D5E920F5C65
 RUN curl -o /usr/local/bin/repo https://storage.googleapis.com/git-repo-downloads/repo
@@ -46,5 +44,3 @@ RUN chmod a+x /usr/local/bin/repo
 # Create a directory which we can use to build the AOSP
 #RUN mkdir /home/$username/aosp && chown $userid:$groupid /home/$username/aosp && chmod ug+s /home/$username/aosp
 RUN mkdir /root/itzkaguya/
-RUN echo 'echo "PUT ALL WORK ON /root/itzkaguya FOLDER EVERYTHING OUTSIDE WILL BE DELETED, ALSO PUT CCACHE"'  > /etc/profile.d/welcome.sh
-CMD ["/usr/sbin/sshd", "-D"]

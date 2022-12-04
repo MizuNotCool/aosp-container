@@ -20,11 +20,6 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get upgrade -y
 # Install apt-utils to make apt run more smoothly
 
 # Install the packages needed for the build
-RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen && \
-    locale-gen
-ENV LANG en_US.UTF-8  
-ENV LANGUAGE en_US:en  
-ENV LC_ALL en_US.UTF-8  
 
 # Disable some gpg options which can cause problems in IPv4 only environments
 # RUN mkdir ~/.gnupg && chmod 600 ~/.gnupg && echo "disable-ipv6" >> ~/.gnupg/dirmngr.conf
